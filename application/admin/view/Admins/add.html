@@ -1,0 +1,60 @@
+{extend name="Publica:public"}
+{block name="title"}管理员添加{/block}
+{block name="admin"}
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+        <span>管理员添加</span>
+            </div>
+                <div class="mws-panel-body no-padding">
+                    <form class="mws-form" action="/admins/dofile" method="post" enctype="multipart/form-data">
+                        <div class="mws-form-inline">
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">头像</label>
+                                <div class="mws-form-item">
+                                    <input type="file" id="exampleInputFile" name="image">
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">姓名</label>
+                                <div class="mws-form-item">
+                                    <input type="text" class="small" name="aname" placeholder="请输入真实姓名">
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">账号</label>
+                                <div class="mws-form-item">
+                                    <input type="text" class="small" name="admins" placeholder="账号必须为3—6位任意数字字母下划线">
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">职位(权限)</label>
+                                <div class="mws-form-item">
+                                    <select class="small" name="zid">
+                                       {foreach name="zid" item="vo"}
+                                            <option value="{$vo['zid']}">{$vo['zname']}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">密码</label>
+                                <div class="mws-form-item">
+                                    <input type="password" class="small" name="pwds" placeholder="密码为6-10位任意数字字母下划线">
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">确认密码</label>
+                                <div class="mws-form-item">
+                                    <input type="password" class="small" name="repwd" placeholder="确保密码一致">
+                                </div>
+                            </div>
+                            </div>
+                                <div class="mws-button-row">
+                                    <input type="submit" value="提交" class="btn btn-danger">
+                                    <input type="reset" value="重置" class="btn ">
+                                </div>
+                        </form>
+                    </div>      
+                </div>
+{/block}

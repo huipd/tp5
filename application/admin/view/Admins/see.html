@@ -1,0 +1,41 @@
+
+{extend name="Publica:public"}
+{block name="title"}管理员列表{/block}
+{block name="admin"}
+    <div class="mws-panel grid_8">
+    	<div class="mws-panel-header">
+        	<span><i class="icon-table"></i> 管理员列表</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <table class="mws-datatable-fn mws-table">
+                <thead>
+                    <tr>
+                        <th>管理员id</th>
+                        <th>头像</th>
+                        <th>账号</th>
+                        <th>姓名</th>
+                        <th>职位</th>
+                        <th>密码</th>
+                        <th>注册时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach name="admins" item="vo"}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td><img src="/uploads/{$vo.cart}" style="width: 100px;height: 100px;"></td>
+                        <td>{$vo.admins}</td>
+                        <td>{$vo.aname}</td>
+                        <td>{$vo.zid}</td>
+                        <td>{$vo.pwds}</td>
+                        <td>{$vo.addtime|date="Y-m-d",###}</td>
+                        <td><a href="/admins/edit/id/{$vo.id}" class="btn btn-success">修改</a> <a onclick="confirm('确定要彻底删除吗？')?location.href='/admins/delete/id/{$vo.id}':''" href="javascript:;" class="btn btn-danger">删除</a></td>
+
+                    </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{/block}

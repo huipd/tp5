@@ -1,0 +1,37 @@
+
+{extend name="Publica:public"}
+{block name="title"}管理员列表{/block}
+{block name="admin"}
+    <div class="mws-panel grid_8">
+    	<div class="mws-panel-header">
+        	<span><i class="icon-table"></i> 管理员列表</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <table class="mws-datatable-fn mws-table">
+                <thead>
+                    <tr>
+                        <th>用户id</th>
+                        <th>手机号</th>
+                        <th>Email</th>
+                        <th>会员等级</th>
+                        <th>注册时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><a href="" class="btn btn-success">修改</a> <a onclick="confirm('确定要彻底删除吗？')?location.href='':''" href="javascript:;" class="btn btn-danger">禁用</a></td>
+
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+{/block}

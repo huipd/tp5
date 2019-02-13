@@ -1,0 +1,65 @@
+{extend name="Publica:public"}
+{block name="title"}管理员修改{/block}
+{block name="admin"}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+    <span>修改管理员信息</span>
+        </div>
+            <div class="mws-panel-body no-padding">
+                <form class="mws-form" action="/admins/update" method="post" enctype="multipart/form-data">
+                    <div class="mws-form-inline">
+                        <div class="mws-form-row">
+                            <label class="mws-form-label">头像</label>
+                            <div class="mws-form-item">
+                                <input type="file" id="exampleInputFile" name="image">
+                                <img src="/uploads/{$admins.cart}" style="width: 100px;height: 100px;margin-top:10px; " class="pull-left">
+                            </div>
+                        </div>
+                        <div class="mws-form-row">
+                            <label class="mws-form-label">姓名</label>
+                            <div class="mws-form-item">
+                                <input type="text" class="small" name="aname" placeholder="请输入真实姓名" value="{$admins.aname}">
+                            </div>
+                        </div>
+                        <div class="mws-form-row">
+                            <label class="mws-form-label">账号</label>
+                            <div class="mws-form-item">
+                                <input type="text" class="small" name="admins" placeholder="账号必须为3—6位任意数字字母下划线" value="{$admins.admins}">
+                            </div>
+                        </div>
+                        <!-- 隐藏zid -->
+                        <input type="hidden" name="id" value="{$admins.id}">
+                        <!-- 头像地址 -->
+                        <input type="hidden" name="cart" value="{$admins.cart}">
+                        <div class="mws-form-row">
+                            <label class="mws-form-label">职位(权限)</label>
+                            <div class="mws-form-item">
+                                <select class="small" name="zid">
+                                   {foreach name="zid" item="vo"}
+                                        <option value="{$vo['zid']}" {$admins['zid']==$vo['zid'] ? 'selected' : ''}>{$vo['zname']}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mws-form-row">
+                            <label class="mws-form-label">密码</label>
+                            <div class="mws-form-item">
+                                <input type="password" class="small" name="pwds" placeholder="密码为6-10位任意数字字母下划线" value="{$admins.pwds}">
+                            </div>
+                        </div>
+                        <div class="mws-form-row">
+                            <label class="mws-form-label">确认密码</label>
+                            <div class="mws-form-item">
+                                <input type="password" class="small" name="repwd" placeholder="确保密码一致" value="{$admins.pwds}">
+                            </div>
+                        </div>
+                        </div>
+                            <div class="mws-button-row">
+                                <input type="submit" value="提交" class="btn btn-danger">
+                                <input type="reset" value="重置" class="btn ">
+                            </div>
+                    </form>
+                </div>      
+            </div>
+{/block}
